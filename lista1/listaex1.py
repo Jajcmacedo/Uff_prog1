@@ -3,7 +3,7 @@ t1 = 1
 if t1 < l:
     print(t1)
 t2 = 1
-if t1 < l:
+if t2 < l:
     print(t2)
 while (t1 + t2) <= l:
     t = t1 + t2
