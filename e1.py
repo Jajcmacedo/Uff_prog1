@@ -1,6 +1,0 @@
-nome = str(input('Informe o seu nome:'))
-idade = str(input('Informe a sua idade::'))
-altura = str(input('Informe a sua altura:'))
-peso = str(input('Informe o seu peso:'))
-nacionalidade = str(input('Informe a sua nacionalidade:'))
-print(nome,'tem',idade,'anos,','mede',altura,'de altura,','pesa',peso,'quilos','e é',nacionalidade,'.')
