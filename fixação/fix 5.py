@@ -7,7 +7,9 @@ while True:
             print(x, 'é divisor de', n)
             cont = cont + 1
         x = x + 1
-    if cont <= 2:
+    if cont == 1 :
+        print(n, 'não é um número primo.')
+    elif cont == 2:
         print(n,'é um número primo.')
     else:
         print(n, 'não é um número primo.')
