@@ -1,5 +1,5 @@
 while True:
-    n = int(input('Informe um número de 1 a 10 para que seja gerada a tabauda:'))
+    n = int(input('Informe um número de 1 a 10 para que seja gerada a tabuada:'))
     if 0 < n <= 10:
         break
 x = 0
