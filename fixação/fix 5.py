@@ -1,6 +1,6 @@
-n = int(input('Informe um número inteiro:'))
-x = 1
 while True:
+    n = int(input('Informe um número inteiro:'))
+    x = 1
     cont = 0
     while x <= n:
         if n % x == 0:
@@ -11,5 +11,3 @@ while True:
         print(n,'é um número primo.')
     else:
         print(n, 'não é um número primo.')
-    n = int(input('Informe um número inteiro:'))
-    x = 1
