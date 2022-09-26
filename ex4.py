@@ -18,13 +18,15 @@ else:
     if 1000 < n <=9999:
         print(m[int(str(n)[0])], end='')
         n = n - int(str(n)[0])*1000
-        if n !=0:
-            print('', end=' ' )
+        if n % 100 == 0:
+            print(' e', end=' ')
+        elif n != 0:
+            print(' ', end='')
     if 100 < n < 1000:
         print(c[int(str(n)[0])], end='')
         n = n - int(str(n)[0])*100
         if n !=0:
-            print(' e', end=' ' )
+            print(' e', end=' ')
     if n < 20:
         print(m20[n])
         n = 0
