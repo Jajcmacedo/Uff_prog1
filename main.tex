@@ -1,0 +1,269 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{fouriernc}
+\usepackage{venndiagram}
+\usepackage{amsmath, calc, xcolor}
+\usepackage[thicklines]{cancel}
+\usepackage{amssymb}
+\setlength{\parindent}{0pt}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+
+\title{\bf 1º Trabalho de Fundamentos Matemáticos para Computação}
+\author{\bf Guilherme Mendes e José Augusto Macêdo}
+\date{04/10/2022}
+
+\begin{document}
+\maketitle
+
+\section{Exercício 1}
+
+Dentre os números de 1 a 1000, inclusive, quantos são divisíveis por 2 ou 5 ou 12, mas não por 10? Justifique. Utilize do Princípio da Inclusão e Exclusão para resolver a questão.
+
+\subsection{Resolução:}
+
+
+$\mathbb{U} = \{ x | 1 \leqslant x \leqslant 1000\}$
+
+$A = \{x \epsilon \mathbb{U}|x$ é divisível por $2\}$
+
+$B = \{x \epsilon \mathbb{U}|x$ é divisível por $5\}$
+
+$C = \{x \epsilon \mathbb{U}|x$ é divisível por $12\}$
+
+$D = \{x \epsilon \mathbb{U}|x$ é divisível por $10\}$
+
+Primeiramente, procuramos os conjuntos A, B e C:
+
+$A = \{2, 4, 6, ...,1000\}$
+
+$n(A) = 500$
+
+$B = \{5, 10, 15, ...,1000\}$
+
+$n(B) = 200$
+
+$C = \{12, 24, 36, 48, 60, 72, 84, 96, 108, 120, 132, 144, 156, 168, 180, 192, 204, 216, 228,\\ 240, 252, 264, 276, 288, 300, 312, 324, 336, 348, 360, 372, 384, 396, 408, 420, 432, 444,\\ 456, 468, 480, 492, 504, 516, 528, 540, 552, 564, 576, 588, 600, 612, 624, 636, 648, 660,\\ 672, 684, 696, 708, 720, 732, 744, 756, 768, 780, 792, 804, 816, 828, 840, 852, 864, 876, 888,\\ 900, 912, 924, 936, 948, 960, 972, 984, 996\}$
+
+$n(C) = 83$
+
+Procuramos agora $A \cap B$, $A \cap C$, $B \cap C$ e $A \cap B \cap C$:
+
+$A \cap B = {10, 20, 30, ...,1000}$
+
+$n(A \cap B) = 100$
+
+$A \cap C = C = \{12, 24, 36, 48, ...,996\}$
+
+$n(A \cap C) = 83$
+
+$B \cap C = \{60, 120, 180, 240, 300, 360, 420, 480, 540, 600, 660, 720, 780, 840, 900, 960\}$
+
+$n(B \cap C) = 16$
+
+$A \cap B \cap C = B \cap C = \{60, 120, 180, 240, 300, 360, 420, 480, 540, 600, 660, 720, 780, 840, 900, 960\}$
+
+$n(A \cap B \cap C) = 16$
+
+Procuramos agora o conjunto $A \cup B \cup C$:
+
+$ n(A \cup B \cup C) = n(A) + n(B) + n(C) - n(A \cap B) - n(A \cap C) - n(B \cap C) + n(A \cap B \cap C) =$
+
+\indent $500 + 200 + 83 - 100 - 83 - 16 + 16$
+
+$583 - 199 + 16$
+			
+$600$
+
+Agora que temos $n(A \cup B \cup C), procuramos (A \cup B \cup C) - D)$:
+
+$D = {10, 20, 30, ..., 1000}$
+
+$n(D) = 100$
+
+$(A \cup B \cup C) \cap D = D$
+
+$n((A \cup B \cup C) - D) = n(A \cup B \cup C) - n(D) =$
+
+$600 - 100=$\\
+		
+\fcolorbox{black}{green}{\Large $500$}
+\newpage		   
+
+\section{Exercício 2}
+
+Mostre usando as propriedades de conjuntos que:
+
+$B - (A - D) = (B - A) \cup (B \cap D)$
+
+\subsection{Resolução:}
+Para $A, B e D$, temos: \\
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+\end{venndiagram3sets}
+\\\\
+Vamos fazer a primeira parte da igualdade.
+\\\\
+Para $A - D$,temos:\\
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+    \fillANotC
+\end{venndiagram3sets}\\\\
+\newpage
+Então para $B - (A - D)$, temos:\\
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+    \fillACapBCapC\fillBNotA
+\end{venndiagram3sets}
+\\\\
+Agora vamos fazer a segunda parte da igualdade.\\\\
+Para $B - A$,temos:\\
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+    \fillBNotA
+\end{venndiagram3sets}\\\\
+Para $B \cap D$,temos:\\
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+    \fillBCapC
+\end{venndiagram3sets}\\
+\newpage
+Então para $(B - A) \cup (B \cap D)$, temos:\\
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+    \fillBCapC\fillBNotA
+\end{venndiagram3sets}\\\\
+Logo,
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+    \fillACapBCapC\fillBNotA
+\end{venndiagram3sets}
+é igual a:
+\begin{venndiagram3sets}[labelC=D,labelNotABC=U,shade=green]
+    \fillBCapC\fillBNotA
+\end{venndiagram3sets}\\
+\newpage
+\section{Exercício 3}
+
+Considere todos os anagramas de 4 letras (podendo haver repetições) que podem ser formados com as 26 letras do nosso alfabeto.
+
+\subsection{Exercício 3.a}
+
+Em quantos deles a primeira e última letras são vogais? Justifique.
+
+\subsubsection{Resolução:}
+
+\tab Levando em consideração que podem haver repetições: Na primeira posição podem haver 5 possiblidades, já que somente as vogais podem ocupar essa posição. Na segunda posição temos 26 possibilidades, pois essa posição pode ser ocupada por todas as letras do alfabeto, incluindo as vogais. Na terceira posição podemos adotar o mesmo argumento anterior. Na quarta posição podemos usar o mesmo argumento da posição 1.
+\\
+\begin{center}
+5 \qquad 26 \qquad 26 \qquad 5\\\
+
+    ---------   ---------  ---------   ---------\\
+$P_{1}$ \qquad $P_{2}$ \qquad $P_{3}$ \qquad $P_{4}$\\\
+\end{center}
+\\
+Baseado no princípio multiplicativo, temos:\\\\
+$5 \times 26 \times 26 \times 5=$\\\\
+\fcolorbox{black}{green}{\Large $16.900$}
+\newpage
+
+\subsection{Exercício 3.b}
+
+Em quantos deles as vogais aparecem, obrigatória e exclusivamente, na primeira e última posições? Justifique.
+
+\subsubsection{Resolução:}
+
+\tab Levando em consideração que podem haver repetições: Na primeira posição podem haver 5 possiblidades, já que somente as vogais podem ocupar essa posição. Na segunda posição temos 21 possibilidades, pois essa posição pode ser ocupada por todas as letras do alfabeto, exceto as vogais. Na terceira posição podemos adotar o mesmo argumento anterior. Na quarta posição podemos usar o mesmo argumento da posição 1.
+\\
+\begin{center}
+5 \qquad 21 \qquad 21 \qquad 5\\\
+
+    ---------   ---------  ---------   ---------\\
+$P_{1}$ \qquad $P_{2}$ \qquad $P_{3}$ \qquad $P_{4}$\\\
+\end{center}\\
+Baseado no princípio multiplicativo, temos:\\\\
+$5 \times 21 \times 21 \times 5=$\\\\
+\fcolorbox{black}{green}{\Large $11.025$}
+\newpage
+
+\section{Exercício 4}
+
+Repita a questão anterior, mas agora considerando que nos anagramas NÃO EXISTEM repetições.
+
+\subsection{Resolução:}
+
+\tab Levando em consideração que não podem haver repetições: Na primeira posição podem haver 5 possiblidades, já que somente as vogais podem ocupar essa posição. Na segunda posição temos 21 possibilidades, pois essa posição pode ser ocupada por todas as letras do alfabeto, exceto as vogais. Na terceira posição temos 20 possibilidades, pois essa posição pode ser ocupada por todas as letras do alfabeto, exceto as vogais e letra usada na posição 2. Na quarta posição podem haver 4 possiblidades, já que somente as vogais podem ocupar essa posição, exceto a vogal usada na posição 1.
+\\
+\begin{center}
+5 \qquad 21 \qquad 20 \qquad 4\\\
+
+    ---------   ---------  ---------   ---------\\
+$P_{1}$ \qquad $P_{2}$ \qquad $P_{3}$ \qquad $P_{4}$\\\
+\end{center}\\
+Baseado no princípio multiplicativo, temos:\\\\
+$5 \times 21 \times 21 \times 5=$\\\\
+\fcolorbox{black}{green}{\Large $8.400$}
+\newpage
+
+\section{Exercício 5}
+
+Em um almoço, Luis, Sofia, Daniel, Ana e Lucas se sentam em uma mesa circular. De quantas maneiras podem se acomodar se:
+
+\subsection{Exercício 5.a}
+
+todos são amigos? Justifique.
+
+\subsubsection{Resolução:}
+\begin{center}
+\begin{tikzpicture}
+    \node at (0,2) {\Large\textbf{Luis}};
+    \node at (2.5,0) {\Large\textbf{Sofi6a}};
+    \node at (-2.5,0) {\Large\textbf{Daniel}};
+    \node at (-1.5,-2) {\Large\textbf{Ana}};
+    \node at (1.5,-2) {\Large\textbf{Lucas}};
+\end{tikzpicture}
+\end{center}
+\\
+    \renewcommand{\cancelColor}{\color{red}}
+\tab Levando em consideração que todos são amigos e não há nenhuma restrição sobre quem se possa sentar ao lado. A cada permutação simples de Luis, Sofia, Daniel, Ana e Lucas há apenas 1 possibilidade e equivale a uma permutação circular.\\\\
+Para $P_{5}$ permutações de Luis, Sofia, Daniel, Ana e Lucas. Temos:   \LARGE$\frac{P_{5}}{5}$\\\\
+$\frac{P_{5}}{5}$ \normalsize{$=$} \Large$\frac{5!}{5}$ \normalsize{$=$} \Large$\frac{5\cdot4!}{5}$ \normalsize{$=$} \renewcommand{\CancelColor}{\color{red}} \Large$\frac{{\cancel{5}}\cdot4!}{\cancel{5}}$ \normalsize{$=$} \normalsize $4!$ $=$\\\\
+\fcolorbox{black}{green}{\Large{$24$}}
+\newpage
+\normalsize
+\subsection{Exercício 5.b}
+
+{Sofia e Daniel nunca se sentam juntos? Justifique.}
+
+\subsubsection{Resolução:}
+
+    \renewcommand{\cancelColor}{\color{red}}
+\tab Levando em consideração que há restrição sobre quem se possa sentar ao lado, no caso,  Sofia e Daniel não podem ficar ao lado do outro.\\
+Vamos primeiro "tirar da roda" a Sofia e o Daniel para que depois possamos adiciona-los novamente.\\
+\begin{center}
+\begin{tikzpicture}
+    \node at (0,1) {\Large\textbf{Luis}};
+    \node at (-1.5,-1) {\Large\textbf{Ana}};
+    \node at (1.5,-1) {\Large\textbf{Lucas}};
+\end{tikzpicture}
+\end{center}
+\\
+Para $P_{5}$ permutações de Luis, Ana e Lucas. Temos:   \LARGE$\frac{P_{3}}{3}$
+\\\\
+$\frac{P_{3}}{3}$ \normalsize{$=$} \Large$\frac{3!}{3}$ \normalsize{$=$} \Large$\frac{3\cdot2!}{3}$ \normalsize{$=$} \renewcommand{\CancelColor}{\color{red}} \Large$\frac{{\cancel{3}}\cdot2!}{\cancel{3}}$ \normalsize{$=$} \normalsize $2!$ $=$ $2$\\\\
+ Agora iremos reintroduzir Sofia e Daniel a roda de modo que as restrições do enunciado sejam respeitadas.\\
+\begin{center}
+\begin{tikzpicture}
+    \draw[fill=black, draw = black] (-1.5,0.4) circle (0.1);
+    \draw[fill=black, draw = black] (1.5,0.4) circle (0.1);
+    \draw[fill=black, draw = black] (0,-1.8) circle (0.1);
+    \node at (0,1) {\Large\textbf{Luis}};
+    \node at (-1.5,-1) {\Large\textbf{Ana}};
+    \node at (1.5,-1) {\Large\textbf{Lucas}};
+\end{tikzpicture}
+\end{center}
+\\
+Para cada roda formada por Luis, Lucas e Ana, há 3 posições para adicionar a Sofia ou o Daniel. No momento que um desses dois for adicionado a roda, então, sobrará 2 posições possíveis para adicionar o outro.\\
+Em resumo, temos:\\ {$2 \times 3 \times 2=} \\\\
+\fcolorbox{black}{green}{\Large{$12$}}
+
+
+\end{document}
