@@ -1,0 +1,25 @@
+while True:
+    n = int(input())
+    if 0 < n < 1000000:
+        break
+print(n)
+reais100 = int(n / 100)
+n = n - (reais100 * 100)
+reais50 = int(n / 50)
+n = n - (reais50 * 50)
+reais20 = int(n / 20)
+n = n - (reais20 * 20)
+reais10 = int(n / 10)
+n = n - (reais10 * 10)
+reais5 = int(n / 5)
+n = n - (reais5 * 5)
+reais2 = int(n / 2)
+n = n - (reais2 * 2)
+reais1 = n
+print(reais100,'nota(s) de R$ 100,00')
+print(reais50,'nota(s) de R$ 50,00')
+print(reais20,'nota(s) de R$ 20,00')
+print(reais10,'nota(s) de R$ 10,00')
+print(reais5,'nota(s) de R$ 5,00')
+print(reais2,'nota(s) de R$ 2,00')
+print(reais1,'nota(s) de R$ 1,00')
